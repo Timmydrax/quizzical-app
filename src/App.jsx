@@ -1,7 +1,19 @@
+import { useState } from "react";
+import QuizScreen from "./components/QuizScreen";
+import StartScreen from "./components/Startscreen";
+
 function App() {
+  const [isQuizStarted, setIsQuizStarted] = useState(false);
+
   return (
     <>
-      <h1 className="text-2xl">Hello Mama Mia</h1>
+      <div>
+        {!isQuizStarted ? (
+          <StartScreen onStart={() => setIsQuizStarted(true)} />
+        ) : (
+          <QuizScreen />
+        )}
+      </div>
     </>
   );
 }
